@@ -1,0 +1,49 @@
+﻿@using SustavZaLijecnike
+@model IEnumerable<Recept>
+
+@{
+    ViewData["Title"] = "Terapije";
+}
+
+<div class="container-fluid p-0">
+    <h1 class="h3 mb-3">Terapije</h1>
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <table class="table table-striped" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>@Html.DisplayNameFor(model => model.Lijek.Naziv)</th>
+                                <th>@Html.DisplayNameFor(model => model.Datum)</th>
+                                <th>@Html.DisplayNameFor(model => model.Napomena)</th>
+                                <th>@Html.DisplayNameFor(model => model.Ponavljajuci)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                
+                                <tr class="status-@item.Odobren">
+                                    <td><i class="fas fa-capsules"></i></td>
+                                    <td>@item.Lijek.Naziv</td>
+                                    <td>@item.Datum.ToShortDateString()</td>
+                                    <td>@item.Napomena</td>
+                                    @if (item.Ponavljajuci)
+                                    {
+                                        <td>Da</td>
+                                    } else
+                                    {
+                                        <td>Ne</td>
+                                    }
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

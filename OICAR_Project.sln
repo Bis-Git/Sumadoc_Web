@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OICAR_Web", "OICAR_Web\OICAR_Web.csproj", "{8D694891-CB49-44C4-8689-8CD2C50C4002}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DomZdravljaCL", "..\DomZdravljaCL\DomZdravljaCL.csproj", "{BFE83987-1373-4401-8AA2-38A911ABDB05}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8D694891-CB49-44C4-8689-8CD2C50C4002}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D694891-CB49-44C4-8689-8CD2C50C4002}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D694891-CB49-44C4-8689-8CD2C50C4002}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D694891-CB49-44C4-8689-8CD2C50C4002}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFE83987-1373-4401-8AA2-38A911ABDB05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFE83987-1373-4401-8AA2-38A911ABDB05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFE83987-1373-4401-8AA2-38A911ABDB05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFE83987-1373-4401-8AA2-38A911ABDB05}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8FCCF0F9-5C44-4D55-8E79-0D32D67AA3E6}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,26 @@
+﻿
+  <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-xl-4">
+                <form asp-controller="Home" asp-action="Login" method="post" class="mt-4">
+                    <div class="form-outline mb-4">
+                        <label>Korisničko ime</label>
+                      <input type="text" name="username" class="form-control form-control-lg"
+                        placeholder="Upiši korisničko ime" />
+                    </div>
+
+                    <label>Lozinka</label>
+                    <div class="form-outline mb-3">
+                      <input type="password" name="password" class="form-control form-control-lg"
+                        placeholder="Lozinka" />
+                    </div>
+
+
+                    <div class="text-center text-lg-start mt-4 pt-2">
+                      <button type="submit" class="btn btn-primary form-control"
+                        style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+</div>

@@ -1,0 +1,22 @@
+﻿@model string
+@{
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lx-3 col-5 mt-5 h-25" style="border: 1px solid rgba(0,0,0,.7); border-radius: 10px">
+            <h3 class="py-3 text-center">Uspijeh</h3>
+            <hr />
+            <p class="py-3">Uspiješno dodana narudžba, čeka se odgovor liječnika</p>
+            <div class="my-3 text-center">
+                @if(Model == "recept")
+                {
+                     <a asp-controller="Podatci" asp-action="Terapije">Pregled terapija</a>
+                } else
+                {
+                     <a asp-controller="Podatci" asp-action="Termini">Pregled termina</a>
+                }
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+﻿@using SustavZaLijecnike
+@model IEnumerable<Cijepljenje>
+
+@{
+    ViewData["Title"] = "Cijepljenja";
+}
+
+<div class="container-fluid p-0">
+    <h1 class="h3 mb-3">Cijepljenja</h1>
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    @if(Model.ToList().Count != 0)
+                    {
+                        <table class="table table-striped" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Cijepivo</th>
+                                <th>@Html.DisplayNameFor(model => model.Datum)</th>
+                                <th>@Html.DisplayNameFor(model => model.Napomena)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                
+                                <tr>
+                                    <td><i class="fas fa-syringe"></i></td>
+                                    <td>@item.Cjepivo.Naziv</td>
+                                    <td>@item.Datum.ToShortDateString()</td>
+                                    <td>@item.Napomena</td>
+                                </tr>
+
+                            }
+                        </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                      <h5>Nema podataka...</h5>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

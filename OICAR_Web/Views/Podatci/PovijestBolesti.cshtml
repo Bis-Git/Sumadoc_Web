@@ -1,0 +1,41 @@
+﻿@using SustavZaLijecnike
+@model IEnumerable<Dijagnoza>
+
+@{
+    ViewData["Title"] = "Povijest bolesti";
+}
+
+<div class="container-fluid p-0">
+    <h1 class="h3 mb-3">Povijest bolesti</h1>
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <table class="table table-striped" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>MKB Šifra</th>
+                                <th>@Html.DisplayNameFor(model => model.Naziv)</th>
+                                <th>Latinski naziv</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+
+                                <tr >
+                                    <td><i class="fas fa-file-medical"></i></td>
+                                    <td>@item.MKBSifra</td>
+                                    <td>@item.Naziv</td>
+                                    <td>@item.NazivLatinski</td>
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

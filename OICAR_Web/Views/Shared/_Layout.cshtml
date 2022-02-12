@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - OICAR_Web</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/OICAR_Web.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mx-2">
+            <a class="nav_logo" style="text-decoration:none" href="#">
+                <i class='fas fa-plus-square nav_logo-icon'></i>
+                <span class="nav_logo-name">SUMADOC</span>
+            </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                 <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse ml-5" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    @if (Context.Session.GetString("userId") != null)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Podatci" asp-action="PovijestBolesti">
+                                    <i class='fas fa-book-medical nav_icon'></i>
+                                    <span class="nav_name">Povijest bolesti</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Podatci" asp-action="PovijestPregleda">
+                                    <i class='fas fa-file-medical nav_icon'></i>
+                                    <span class="nav_name">Povijest pregleda</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Podatci" asp-action="Terapije">
+                                    <i class='fas fa-prescription-bottle-alt nav_icon'></i>
+                                    <span class="nav_name">Terapije</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Podatci" asp-action="Termini">
+                                    <i class='fas fa-clock nav_icon'></i>
+                                    <span class="nav_name">Termini</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Podatci" asp-action="Uputnice">
+                                    <i class='fas fa-file-signature nav_icon'></i>
+                                    <span class="nav_name">Uputnice</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Podatci" asp-action="Cijepljenja">
+                                    <i class='fas fa-file-medical-alt nav_icon'></i>
+                                    <span class="nav_name">Cijepljenje</span>
+                                </a>
+                            </li>
+
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Zatraži
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <li>
+                                        <a class="dropdown-item" asp-area="" asp-controller="Narudzbe" asp-action="Termin">
+                                            <i class='fas fa-calendar-alt nav_icon'></i>
+                                            <span class="nav_name">Termin pregleda</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" asp-area="" asp-controller="Narudzbe" asp-action="Recept">
+                                            <i class='fas fa-mortar-pestle nav_icon'></i>
+                                            <span class="nav_name">Izdavanje recepta</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        }
+
+                </ul>
+                <ul class="navbar-nav">
+                    @if (Context.Session.GetString("userId") != null)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Profil" asp-action="Profil">
+                                <i class='fas fa-user nav_icon'></i>
+                                <span class="nav_name">Profil</span>
+                            </a>
+                        </li>
+                       <li class="nav-item">
+                           <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Logout">
+                               <i class="fas fa-sign-out-alt nav_icon"></i> <span class="nav_name">Logout</span>
+                           </a>
+                       </li>
+                    }
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - OICAR_Web
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

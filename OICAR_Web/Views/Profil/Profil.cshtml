@@ -1,0 +1,98 @@
+﻿@using System.Text
+@using SustavZaLijecnike
+@model Pacijent
+@{
+    ViewData["Title"] = "Profil";
+    string punoIme = Model.Ime + " " + Model.Prezime;
+    string punoImeLijecnik = Model.Lijecnik.Ime + " " + Model.Lijecnik.Prezime;
+    string datumRodenja = Model.DatumRodenja.ToLongDateString();
+    string datumUpisa = Model.DatumUpisa.ToLongDateString();
+}
+
+<form asp-controller="Profil" asp-action="Profil" method="post">
+    <div class="container rounded bg-white mt-5 mb-5">
+        <div class="row">
+            <div class="col-md-3 border-right">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                    <img class="rounded-circle mt-5" width="150px" src="~/assets/stock-user-img.png" />
+                    <span class="font-weight-bold">@punoIme</span><span class="text-black-50">@Model.Email</span>
+                    <div class="mt-5 text-center">
+                        <a class="btn btn-danger" type="button" asp-action="DeleteProfil">Obriši profil</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 border-right">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="border px-3 p-1 mb-2">Osobni podatci</span>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <label>Ime</label>
+                            <input type="text" class="form-control" name="ime" value="@Model.Ime">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Prezime</label>
+                            <input type="text" class="form-control" value="@Model.Prezime" name="prezime">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12">
+                            <label class="labels">Datum rođenja</label>
+                            <input type="text" disabled class="form-control" value="@datumRodenja" name="datumRodenja">
+                        </div>
+                        <div class="col-md-12">
+                            <label class="labels">Email</label>
+                            <input type="text" class="form-control" value="@Model.Email" name="email">
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="border px-3 p-1 mx-3 my-3">Prebivalište</span>
+                        </div>
+                        <br>
+
+                        <div class="col-md-12">
+                            <label class="labels">Adresa</label>
+                            <input type="text" class="form-control" value="@Model.Prebivaliste.UlicaBroj" name="ulicaBroj">
+                        </div>
+                        <div class="col-md-12">
+                            <label class="labels">Grad</label>
+                            <input type="text" class="form-control" value="@Model.Prebivaliste.Grad" name="grad">
+                        </div>
+                        <div class="col-md-12">
+                        <label class="labels">Telefon/Mobitel</label>
+                        <input type="text" class="form-control" value="@Model.Telefon" name="kontakt">
+                    </div>
+
+                    </div>
+                    
+                    <div class="mt-5 text-center">
+                        <button class="btn btn-primary" type="submit">Spremi</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center experience">
+                        <span class="border px-3 p-1 mx-3 mb-2">Zdravstveni podatci</span>
+                    </div>
+                    <br>
+                    <div class="col-md-12">
+                        <label class="labels">Liječnik</label>
+                        <input type="text" class="form-control" disabled value="@punoImeLijecnik" />
+                    </div>
+                    <br>
+                    <div class="col-md-12">
+                        <label class="labels">MBO</label>
+                        <input type="text" class="form-control" disabled value="@Model.MBO">
+                    </div>
+                    <div class="col-md-12">
+                        <label class="labels">Datum upisa</label>
+                        <input type="text" class="form-control" disabled value="@datumUpisa">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>

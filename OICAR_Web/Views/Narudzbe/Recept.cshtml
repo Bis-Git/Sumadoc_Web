@@ -1,0 +1,42 @@
+﻿@using SustavZaLijecnike
+@model dynamic
+
+@{
+
+    IEnumerable<Dijagnoza> dijagnoze = Model.dijagnoze;
+    IEnumerable<Lijek> lijekovi = Model.lijekovi;
+
+}
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class=col-xl-6>
+            <form method="post" action="Recept">
+
+                <label>Dijagnoza</label>
+                <select class="form-control my-3" id="dijagnoza" name="dijagnozaId">
+                    @foreach (var diajgnoza in dijagnoze)
+                    {
+                        <option value="@diajgnoza.IDDijagnoza">@diajgnoza.Naziv</option>
+                    }
+                </select>
+
+                <label>Lijek</label>
+                <select class="form-control my-3" id="lijek" name="lijekId">
+                    @foreach (var lijek in lijekovi)
+                    {
+                        <option value="@lijek.IDLijek">@lijek.Naziv</option>
+                    }
+                </select>
+
+                <label>Napomena</label>
+                <textarea class="form-control" id="taNapomena" name="napomena"></textarea>
+
+                
+                <input type="checkbox" name="ponavljajuc" value="true" /><label>Ponavljaj ovaj recept svaki mjesec</label>
+
+                <button type="submit" class="btn btn-primary form-control" style="margin: 10px auto 0">Pošalji</button>
+            </form>
+        </div>
+    </div>
+</div>

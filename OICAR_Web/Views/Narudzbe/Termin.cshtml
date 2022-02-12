@@ -1,0 +1,57 @@
+﻿@using SustavZaLijecnike
+@model dynamic
+@{
+    Pacijent pacijent = Model.pacijent;
+    DateTime datum = Model.date;
+    IEnumerable<string> predefiniraniTermini = Model.predefiniraniTermini;
+
+    string punoImeLijecnik = pacijent.Lijecnik.Ime + " " + pacijent.Lijecnik.Prezime;
+
+    string month = datum.Month.ToString("#00");
+    string day = datum.Day.ToString("#00");
+
+    var date = datum.Year + "-" + month + "-" + day;
+
+    string limitMonth = DateTime.Now.Month.ToString("#00");
+    string limitDay = DateTime.Now.Day.ToString("#00");
+    string limitDate = DateTime.Now.Year + "-" + limitMonth + "-" + limitDay;
+}
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class=col-xl-6>
+            <label>Liječnik</label>
+            <input class="form-control my-3" type="text" value="@punoImeLijecnik" disabled />
+
+            <label>Datum</label>
+            <form method="get" action="Termin">
+                <input id="date" class="form-control  my-3 date" type="date" min="@limitDate" name="date" value="@date">
+            </form>
+
+            <form method="post" action="Termin">
+                <input type="hidden" value="@date" name="date" />
+
+                <label>Vrijeme</label>
+                <select class="form-control my-3" id="predefiniraniTermin" name="vrijeme">
+                    @foreach (var termin in predefiniraniTermini)
+                    {
+                        <option>@termin</option>
+                    }
+                </select>
+
+                <label>Napomena</label>
+                <textarea class="form-control" id="taNapomena" name="napomena"></textarea>
+
+                <button type="submit" class="btn btn-primary form-control" style="margin: 10px auto 0">Pošalji</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+<script>
+    $('form .date').change(function() {
+        $(this).closest('form').submit();
+    });
+</script>
+}
